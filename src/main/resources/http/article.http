@@ -1,0 +1,30 @@
+### Create Article
+POST http://localhost:8080/articleType
+Content-Type: application/json
+
+{
+  "orderNumber": 5,
+  "name_uz": "AAAAAAAAA",
+  "name_ru": "Фот",
+  "name_en": "Photo"
+}
+
+### Update By Id
+PUT http://localhost:8080/articleType/5
+Content-Type: application/json
+
+{
+  "orderNumber": 5,
+  "name_uz": "Intervyu",
+  "name_ru": "Интервью",
+  "name_en": "Interview"
+}
+
+### Delete by Id
+DELETE http://localhost:8080/articleType/7
+
+### Get All //pagination
+GET http://localhost:8080/articleType
+
+### Get By lang
+GET http://localhost:8080/articleType/lang?lang=en

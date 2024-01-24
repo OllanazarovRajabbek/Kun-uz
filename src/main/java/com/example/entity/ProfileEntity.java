@@ -9,7 +9,7 @@ import lombok.Data;
 @Data
 @Table(name = "profile")
 public class ProfileEntity extends BaseEntity{
-
+    @Column(nullable = false)
     private String name;
     @Column(nullable = false)
     private String surname;

@@ -11,10 +11,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class InitController {
     @Autowired
     private InitService initService;
-
     @GetMapping("/admin")
-    public String initAdmit(){
+    public String initAdmit() {
         initService.initAdmin();
-        return "done";
+        return "Success";
     }
 }

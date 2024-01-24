@@ -5,8 +5,8 @@ import lombok.Data;
 
 import java.time.LocalDateTime;
 
-@MappedSuperclass
 @Data
+@MappedSuperclass
 public class BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,3 +19,4 @@ public class BaseEntity {
     private Boolean visible = true;
 
 }
+
