@@ -1,0 +1,55 @@
+### Create Profile (Admin)
+POST http://localhost:8080/profile
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDYyNjk1NDQsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDYzNTU5NDQsImlzcyI6Ikt1blV6VGVzdCJ9.pRdeIANPfVA3fpTXt5Pp14XV1TFzIHAikic8-ljnKW5PG3ixIP7AybM8k4mACNCseJzKnsuqPKy7laTFK5TMbQ
+
+{
+  "name": "aa",
+  "surname": "aa",
+  "email": "aa@gmail.com",
+  "phone": "+99893111111",
+  "password": "aa",
+  "status": "ACTIVE",
+  "role": "USER"
+}
+
+### Update Profile (Admin)
+PUT http://localhost:8080/profile/5
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDYyNjk1NDQsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDYzNTU5NDQsImlzcyI6Ikt1blV6VGVzdCJ9.pRdeIANPfVA3fpTXt5Pp14XV1TFzIHAikic8-ljnKW5PG3ixIP7AybM8k4mACNCseJzKnsuqPKy7laTFK5TMbQ
+
+{
+  "name": "Alisher",
+  "surname": "Nurmatov",
+  "email": "alish@gmail.com",
+  "phone": "+99893111111",
+  "password": "alish12",
+  "status": "ACTIVE",
+  "role": "USER"
+}
+
+### Update Profile
+PUT http://localhost:8080/profile
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDYyNjk1NDQsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDYzNTU5NDQsImlzcyI6Ikt1blV6VGVzdCJ9.pRdeIANPfVA3fpTXt5Pp14XV1TFzIHAikic8-ljnKW5PG3ixIP7AybM8k4mACNCseJzKnsuqPKy7laTFK5TMbQ
+
+{
+  "name": "Anvar",
+  "surname": "Anvarov",
+  "email": "anvar11@gmail.com",
+  "phone": "+998990008090",
+  "password": "anvar12",
+  "status": "ACTIVE",
+  "role": "USER"
+}
+
+### Delete By Id (Admin)
+DELETE http://localhost:8080/profile/5
+Authorization: eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDYyNjk1NDQsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDYzNTU5NDQsImlzcyI6Ikt1blV6VGVzdCJ9.pRdeIANPfVA3fpTXt5Pp14XV1TFzIHAikic8-ljnKW5PG3ixIP7AybM8k4mACNCseJzKnsuqPKy7laTFK5TMbQ
+
+
+### Get List (Admin)
+GET http://localhost:8080/profile
+Authorization: eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDYyNjk1NDQsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDYzNTU5NDQsImlzcyI6Ikt1blV6VGVzdCJ9.pRdeIANPfVA3fpTXt5Pp14XV1TFzIHAikic8-ljnKW5PG3ixIP7AybM8k4mACNCseJzKnsuqPKy7laTFK5TMbQ
+
+### Update photo (Admin)

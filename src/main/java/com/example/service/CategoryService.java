@@ -1,10 +1,10 @@
 package com.example.service;
 
-import com.example.dto.RegionDTO;
-import com.example.entity.RegionEntity;
+import com.example.dto.CategoryDTO;
+import com.example.entity.CategoryEntity;
 import com.example.enums.AppLanguage;
 import com.example.exp.AppBadException;
-import com.example.repository.RegionRepository;
+import com.example.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,76 +14,74 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class RegionService {
+public class CategoryService {
     @Autowired
-    private RegionRepository regionRepository;
+    private CategoryRepository categoryRepository;
 
-    public RegionDTO create(RegionDTO dto) {
+    public CategoryDTO create(CategoryDTO dto) {
         if (dto.getOrderNumber() == null || dto.getName_uz() == null
                 || dto.getName_ru() == null || dto.getName_en() == null) {
             throw new AppBadException("The information entered is incorrect. Please try again");
         }
 
-        RegionEntity entity = new RegionEntity();
+        CategoryEntity entity = new CategoryEntity();
         entity.setOrderNumber(dto.getOrderNumber());
         entity.setName_uz(dto.getName_uz());
         entity.setName_ru(dto.getName_ru());
         entity.setName_en(dto.getName_en());
         entity.setCreatedDate(LocalDateTime.now());
 
-        regionRepository.save(entity);
+        categoryRepository.save(entity);
 
         dto.setId(entity.getId());
         dto.setCreatedDate(entity.getCreatedDate());
         return dto;
     }
 
-    public Boolean update(Integer id, RegionDTO dto) {
-        Optional<RegionEntity> optional = regionRepository.findById(id);
+    public Boolean update(Integer id, CategoryDTO dto) {
+        Optional<CategoryEntity> optional = categoryRepository.findById(id);
         if (optional.isEmpty() || optional.get().getVisible().equals(false)) {
             throw new AppBadException("The region you want to update was not found");
         }
-        RegionEntity regionEntity = optional.get();
+        CategoryEntity regionEntity = optional.get();
         regionEntity.setName_uz(dto.getName_uz());
         regionEntity.setName_ru(dto.getName_ru());
         regionEntity.setName_en(dto.getName_en());
         regionEntity.setUpdatedDate(LocalDateTime.now());
-        regionRepository.save(regionEntity);
+        categoryRepository.save(regionEntity);
 
         return true;
     }
 
     public Boolean delete(Integer id) {
-        Optional<RegionEntity> optional = regionRepository.findById(id);
+        Optional<CategoryEntity> optional = categoryRepository.findById(id);
         if (optional.isEmpty() || optional.get().getVisible().equals(false)) {
             throw new AppBadException("The region you want to delete was not found");
         }
-        RegionEntity entity = optional.get();
+        CategoryEntity entity = optional.get();
         entity.setVisible(false);
-        regionRepository.save(entity);
+        categoryRepository.save(entity);
         return true;
     }
 
-    public List<RegionDTO> getAll() {
-        Iterable<RegionEntity> entityList = regionRepository.findAll();
+    public List<CategoryDTO> getAll() {
+        List<CategoryEntity> getList = categoryRepository.getAllByOrderNumber();
 
-        List<RegionDTO> dtoList = new LinkedList<>();
-        for (RegionEntity entity : entityList) {
-            if (entity.getVisible().equals(true)) {
-                dtoList.add(toDTO(entity));
-            }
+        List<CategoryDTO> dtoList = new LinkedList<>();
+        for (CategoryEntity entity : getList) {
+            dtoList.add(toDTO(entity));
         }
         return dtoList;
     }
 
-    public List<RegionDTO> getByLang(AppLanguage language) {
-        Iterable<RegionEntity> entityList = regionRepository.findAll();
+    public List<CategoryDTO> getByLang(AppLanguage language) {
+        Iterable<CategoryEntity> entityList = categoryRepository.findAll();
 
-        List<RegionDTO> dtoList = new LinkedList<>();
+        List<CategoryDTO> dtoList = new LinkedList<>();
 
-        for (RegionEntity entity : entityList) {
+        for (CategoryEntity entity : entityList) {
             if (entity.getVisible().equals(true)) {
-                RegionDTO dto = new RegionDTO();
+                CategoryDTO dto = new CategoryDTO();
                 dto.setId(entity.getId());
                 switch (language) {
                     case UZ -> dto.setName_ru(entity.getName_uz());
@@ -96,8 +94,8 @@ public class RegionService {
         return dtoList;
     }
 
-    public RegionDTO toDTO(RegionEntity entity) {
-        RegionDTO dto = new RegionDTO();
+    public CategoryDTO toDTO(CategoryEntity entity) {
+        CategoryDTO dto = new CategoryDTO();
         dto.setId(entity.getId());
         dto.setOrderNumber(entity.getOrderNumber());
         dto.setName_uz(entity.getName_uz());
@@ -111,6 +109,5 @@ public class RegionService {
         }
         return dto;
     }
-
 
 }

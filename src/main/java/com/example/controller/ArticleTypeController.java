@@ -1,9 +1,14 @@
 package com.example.controller;
 
 import com.example.dto.ArticleTypeDTO;
+import com.example.dto.JwtDTO;
+import com.example.enums.AppLanguage;
+import com.example.enums.ProfileRole;
 import com.example.service.ArticleTypeService;
+import com.example.util.JWTUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageImpl;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,9 +22,14 @@ public class ArticleTypeController {
     private ArticleTypeService articleTypeService;
 
     @PostMapping("")
-    public ResponseEntity<ArticleTypeDTO> create(@RequestBody ArticleTypeDTO article) {
-        ArticleTypeDTO result = articleTypeService.create(article);
-        return ResponseEntity.ok(result);
+    public ResponseEntity<ArticleTypeDTO> create(@RequestBody ArticleTypeDTO article,
+                                                 @RequestHeader(value = "Authorization") String jwt) {
+        JwtDTO jwtDTO = JWTUtil.decode(jwt);
+        if (jwtDTO.getRole().equals(ProfileRole.ADMIN)) {
+            ArticleTypeDTO result = articleTypeService.create(article);
+            return ResponseEntity.ok(result);
+        }
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
     }
 
     @PutMapping("{id}")
@@ -40,7 +50,10 @@ public class ArticleTypeController {
     }
 
     @GetMapping("/lang")
-    public ResponseEntity<List<ArticleTypeDTO>> getByLang(@RequestParam String lang) {
-        return ResponseEntity.ok(articleTypeService.getByLang(lang));
+    public ResponseEntity<List<ArticleTypeDTO>> getByLang(@RequestParam(value = "lang", defaultValue = "uz")
+                                                          AppLanguage language) {
+        return ResponseEntity.ok(articleTypeService.getByLang(language));
     }
+
+
 }

@@ -1,30 +1,35 @@
 ### Create Region
 POST http://localhost:8080/region
 Content-Type: application/json
+Authorization: eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDYxNzU5NzIsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDYyNjIzNzIsImlzcyI6Ikt1blV6VGVzdCJ9.3jHv8odDKO0ZRkdd4hC3Rq33DbStrLssFmQgj-HGv7BPd_RRhDiDhR7R8ebRlu81MtgH1yPBXVhfTbtax2JbGg
 
 {
-  "orderNumber": 6,
+  "orderNumber": 7,
   "name_uz": "AAAAAA",
   "name_ru": "BBBBBBB",
   "name_en": "nnnnn"
 }
 
 ### Update Region
-PUT http://localhost:8080/region/6
+PUT http://localhost:8080/region/7
 Content-Type: application/json
+Authorization: eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDYxNzU5NzIsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDYyNjIzNzIsImlzcyI6Ikt1blV6VGVzdCJ9.3jHv8odDKO0ZRkdd4hC3Rq33DbStrLssFmQgj-HGv7BPd_RRhDiDhR7R8ebRlu81MtgH1yPBXVhfTbtax2JbGg
 
 {
-  "orderNumber": 6,
-  "name_uz": "Sirdaryo",
-  "name_ru": "Сырдарья",
-  "name_en": "Syrdarya"
+  "name_uz": "Namangan",
+  "name_ru": "Наманган",
+  "name_en": "Namangan"
 }
 
 ### Delete By Id
 DELETE http://localhost:8080/region/1
+Authorization: eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDYxNzU5NzIsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDYyNjIzNzIsImlzcyI6Ikt1blV6VGVzdCJ9.3jHv8odDKO0ZRkdd4hC3Rq33DbStrLssFmQgj-HGv7BPd_RRhDiDhR7R8ebRlu81MtgH1yPBXVhfTbtax2JbGg
+
 
 ### Get All
 GET http://localhost:8080/region
+Authorization: eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDYxNzU5NzIsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDYyNjIzNzIsImlzcyI6Ikt1blV6VGVzdCJ9.3jHv8odDKO0ZRkdd4hC3Rq33DbStrLssFmQgj-HGv7BPd_RRhDiDhR7R8ebRlu81MtgH1yPBXVhfTbtax2JbGg
+
 
 ### Get By lang
-GET http://localhost:8080/region/3?lang=en
+GET http://localhost:8080/region/lang?lang=EN

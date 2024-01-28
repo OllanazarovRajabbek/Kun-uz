@@ -1,0 +1,35 @@
+### Create Category
+POST http://localhost:8080/category
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDYyNjk1NDQsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDYzNTU5NDQsImlzcyI6Ikt1blV6VGVzdCJ9.pRdeIANPfVA3fpTXt5Pp14XV1TFzIHAikic8-ljnKW5PG3ixIP7AybM8k4mACNCseJzKnsuqPKy7laTFK5TMbQ
+
+{
+  "orderNumber": 3,
+  "name_uz": "IQTISODIYOT",
+  "name_ru": "ЭКОНОМИКА",
+  "name_en": "ECONOMY"
+}
+
+### Update Category
+PUT http://localhost:8080/category/3
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDYyNjk1NDQsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDYzNTU5NDQsImlzcyI6Ikt1blV6VGVzdCJ9.pRdeIANPfVA3fpTXt5Pp14XV1TFzIHAikic8-ljnKW5PG3ixIP7AybM8k4mACNCseJzKnsuqPKy7laTFK5TMbQ
+
+{
+  "name_uz": "IQTISODIYOT",
+  "name_ru": "ЭКОНОМИКА",
+  "name_en": "ECONOMY"
+}
+
+### Delete By Id
+DELETE http://localhost:8080/category/3
+Authorization: eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDYyNjk1NDQsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDYzNTU5NDQsImlzcyI6Ikt1blV6VGVzdCJ9.pRdeIANPfVA3fpTXt5Pp14XV1TFzIHAikic8-ljnKW5PG3ixIP7AybM8k4mACNCseJzKnsuqPKy7laTFK5TMbQ
+
+
+### Get All
+GET http://localhost:8080/category
+Authorization: eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDYyNjk1NDQsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDYzNTU5NDQsImlzcyI6Ikt1blV6VGVzdCJ9.pRdeIANPfVA3fpTXt5Pp14XV1TFzIHAikic8-ljnKW5PG3ixIP7AybM8k4mACNCseJzKnsuqPKy7laTFK5TMbQ
+
+
+### Get By lang
+GET http://localhost:8080/category/lang?lang=EN
