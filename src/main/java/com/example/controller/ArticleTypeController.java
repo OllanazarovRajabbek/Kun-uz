@@ -5,7 +5,9 @@ import com.example.dto.JwtDTO;
 import com.example.enums.AppLanguage;
 import com.example.enums.ProfileRole;
 import com.example.service.ArticleTypeService;
+import com.example.util.HttpRequestUtil;
 import com.example.util.JWTUtil;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.http.HttpStatus;
@@ -21,31 +23,38 @@ public class ArticleTypeController {
     @Autowired
     private ArticleTypeService articleTypeService;
 
-    @PostMapping("")
+    @PostMapping("/adm")
     public ResponseEntity<ArticleTypeDTO> create(@RequestBody ArticleTypeDTO article,
-                                                 @RequestHeader(value = "Authorization") String jwt) {
-        JwtDTO jwtDTO = JWTUtil.decode(jwt);
-        if (jwtDTO.getRole().equals(ProfileRole.ADMIN)) {
-            ArticleTypeDTO result = articleTypeService.create(article);
-            return ResponseEntity.ok(result);
-        }
-        return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+                                                 HttpServletRequest request) {
+
+        HttpRequestUtil.getProfileId(request, ProfileRole.ADMIN);
+        ArticleTypeDTO result = articleTypeService.create(article);
+        return ResponseEntity.ok(result);
     }
 
-    @PutMapping("{id}")
+    @PutMapping("/adm/{id}")
     public ResponseEntity<?> update(@PathVariable Integer id,
-                                    @RequestBody ArticleTypeDTO article) {
+                                    @RequestBody ArticleTypeDTO article,
+                                    HttpServletRequest request) {
+
+        HttpRequestUtil.getProfileId(request, ProfileRole.ADMIN);
         return ResponseEntity.ok(articleTypeService.update(id, article));
     }
 
-    @DeleteMapping("{id}")
-    public ResponseEntity<?> delete(@PathVariable Integer id) {
+    @DeleteMapping("/adm/{id}")
+    public ResponseEntity<?> delete(@PathVariable Integer id,
+                                    HttpServletRequest request) {
+
+        HttpRequestUtil.getProfileId(request, ProfileRole.ADMIN);
         return ResponseEntity.ok(articleTypeService.delete(id));
     }
 
-    @GetMapping("")
+    @GetMapping("/adm")
     public ResponseEntity<PageImpl<ArticleTypeDTO>> getAll(@RequestParam(value = "page", defaultValue = "1") Integer page,
-                                                           @RequestParam(value = "size", defaultValue = "6") Integer size) {
+                                                           @RequestParam(value = "size", defaultValue = "6") Integer size,
+                                                           HttpServletRequest request) {
+
+        HttpRequestUtil.getProfileId(request, ProfileRole.ADMIN);
         return ResponseEntity.ok(articleTypeService.getAll(page, size));
     }
 

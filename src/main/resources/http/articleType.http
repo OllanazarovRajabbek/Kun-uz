@@ -1,0 +1,34 @@
+### Create Article
+POST http://localhost:8080/articleType/adm
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDY0MjU4NTksImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDY1MTIyNTksImlzcyI6Ikt1blV6VGVzdCJ9.aa2BA6OxiXwUeYtuKVBZZH7AscdWpJIbGm8uJ3ZLZEg_3dMU27xXnpuyZIud6OnNVsJ0u6mO-KS9RKCR72oZTw
+
+{
+  "orderNumber": 5,
+  "name_uz": "AAAAAAAAA",
+  "name_ru": "Фот",
+  "name_en": "Photo"
+}
+
+### Update By Id
+PUT http://localhost:8080/articleType/adm/6
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDY0MjU4NTksImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDY1MTIyNTksImlzcyI6Ikt1blV6VGVzdCJ9.aa2BA6OxiXwUeYtuKVBZZH7AscdWpJIbGm8uJ3ZLZEg_3dMU27xXnpuyZIud6OnNVsJ0u6mO-KS9RKCR72oZTw
+
+{
+  "orderNumber": 6,
+  "name_uz": "Biznes",
+  "name_ru": "Бизнес",
+  "name_en": "Business"
+}
+
+### Delete by Id
+DELETE http://localhost:8080/articleType/adm/7
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDY0MjU4NTksImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDY1MTIyNTksImlzcyI6Ikt1blV6VGVzdCJ9.aa2BA6OxiXwUeYtuKVBZZH7AscdWpJIbGm8uJ3ZLZEg_3dMU27xXnpuyZIud6OnNVsJ0u6mO-KS9RKCR72oZTw
+
+### Get All //pagination
+GET http://localhost:8080/articleType/adm
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDY0MjU4NTksImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDY1MTIyNTksImlzcyI6Ikt1blV6VGVzdCJ9.aa2BA6OxiXwUeYtuKVBZZH7AscdWpJIbGm8uJ3ZLZEg_3dMU27xXnpuyZIud6OnNVsJ0u6mO-KS9RKCR72oZTw
+
+### Get By lang
+GET http://localhost:8080/articleType/lang?lang=en

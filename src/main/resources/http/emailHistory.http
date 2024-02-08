@@ -1,0 +1,10 @@
+### Get Email history
+GET localhost:8080/email_history/jamshidulugmurodov0411@gmail.com
+
+### Get EmailHistory  by given date
+GET http://localhost:8080/email_history
+
+
+### Get all Pagination(Admin)
+GET http://localhost:8080/email_history/adm
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDczODA0MjYsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDc0NjY4MjYsImlzcyI6Ikt1blV6VGVzdCJ9.Ik3R12Pj5ENpSgmmVsJqb6clZTT6BJB7uZi90g_TGeGUPVzpweNsrltzTcrTkrn5r_-l1d5-6wIFg-AybS_GSA

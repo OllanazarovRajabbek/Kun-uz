@@ -1,55 +1,45 @@
 ### Create Profile (Admin)
-POST http://localhost:8080/profile
+POST http://localhost:8080/profile/adm
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDYyNjk1NDQsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDYzNTU5NDQsImlzcyI6Ikt1blV6VGVzdCJ9.pRdeIANPfVA3fpTXt5Pp14XV1TFzIHAikic8-ljnKW5PG3ixIP7AybM8k4mACNCseJzKnsuqPKy7laTFK5TMbQ
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDY0MjU4NTksImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDY1MTIyNTksImlzcyI6Ikt1blV6VGVzdCJ9.aa2BA6OxiXwUeYtuKVBZZH7AscdWpJIbGm8uJ3ZLZEg_3dMU27xXnpuyZIud6OnNVsJ0u6mO-KS9RKCR72oZTw
 
 {
   "name": "aa",
   "surname": "aa",
-  "email": "aa@gmail.com",
-  "phone": "+99893111111",
-  "password": "aa",
+  "email": "alisher@gmail.com",
+  "phone": "+998932222222",
+  "password": "alish",
   "status": "ACTIVE",
   "role": "USER"
 }
 
 ### Update Profile (Admin)
-PUT http://localhost:8080/profile/5
+PUT http://localhost:8080/profile/adm/8
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDYyNjk1NDQsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDYzNTU5NDQsImlzcyI6Ikt1blV6VGVzdCJ9.pRdeIANPfVA3fpTXt5Pp14XV1TFzIHAikic8-ljnKW5PG3ixIP7AybM8k4mACNCseJzKnsuqPKy7laTFK5TMbQ
+Authorization:Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDY0MjU4NTksImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDY1MTIyNTksImlzcyI6Ikt1blV6VGVzdCJ9.aa2BA6OxiXwUeYtuKVBZZH7AscdWpJIbGm8uJ3ZLZEg_3dMU27xXnpuyZIud6OnNVsJ0u6mO-KS9RKCR72oZTw
 
 {
-  "name": "Alisher",
-  "surname": "Nurmatov",
-  "email": "alish@gmail.com",
-  "phone": "+99893111111",
-  "password": "alish12",
-  "status": "ACTIVE",
-  "role": "USER"
+  "name": "Ganisher",
+  "surname": "Mardonov",
+  "email": "galisher@gmail.com"
 }
 
 ### Update Profile
-PUT http://localhost:8080/profile
+PUT http://localhost:8080/profile/admDetail
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDYyNjk1NDQsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDYzNTU5NDQsImlzcyI6Ikt1blV6VGVzdCJ9.pRdeIANPfVA3fpTXt5Pp14XV1TFzIHAikic8-ljnKW5PG3ixIP7AybM8k4mACNCseJzKnsuqPKy7laTFK5TMbQ
+Authorization:Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDY0MjU4NTksImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDY1MTIyNTksImlzcyI6Ikt1blV6VGVzdCJ9.aa2BA6OxiXwUeYtuKVBZZH7AscdWpJIbGm8uJ3ZLZEg_3dMU27xXnpuyZIud6OnNVsJ0u6mO-KS9RKCR72oZTw
 
 {
-  "name": "Anvar",
-  "surname": "Anvarov",
-  "email": "anvar11@gmail.com",
-  "phone": "+998990008090",
-  "password": "anvar12",
-  "status": "ACTIVE",
-  "role": "USER"
+  "name": "Rashid",
+  "surname": "Aliyev"
 }
 
 ### Delete By Id (Admin)
-DELETE http://localhost:8080/profile/5
-Authorization: eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDYyNjk1NDQsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDYzNTU5NDQsImlzcyI6Ikt1blV6VGVzdCJ9.pRdeIANPfVA3fpTXt5Pp14XV1TFzIHAikic8-ljnKW5PG3ixIP7AybM8k4mACNCseJzKnsuqPKy7laTFK5TMbQ
+DELETE http://localhost:8080/profile/adm/10
+Authorization:Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDY0MjU4NTksImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDY1MTIyNTksImlzcyI6Ikt1blV6VGVzdCJ9.aa2BA6OxiXwUeYtuKVBZZH7AscdWpJIbGm8uJ3ZLZEg_3dMU27xXnpuyZIud6OnNVsJ0u6mO-KS9RKCR72oZTw
 
 
 ### Get List (Admin)
-GET http://localhost:8080/profile
-Authorization: eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDYyNjk1NDQsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDYzNTU5NDQsImlzcyI6Ikt1blV6VGVzdCJ9.pRdeIANPfVA3fpTXt5Pp14XV1TFzIHAikic8-ljnKW5PG3ixIP7AybM8k4mACNCseJzKnsuqPKy7laTFK5TMbQ
-
+GET http://localhost:8080/profile/adm
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDczODA0MjYsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDc0NjY4MjYsImlzcyI6Ikt1blV6VGVzdCJ9.Ik3R12Pj5ENpSgmmVsJqb6clZTT6BJB7uZi90g_TGeGUPVzpweNsrltzTcrTkrn5r_-l1d5-6wIFg-AybS_GSA
 ### Update photo (Admin)

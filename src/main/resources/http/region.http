@@ -1,19 +1,19 @@
 ### Create Region
-POST http://localhost:8080/region
+POST http://localhost:8080/region/adm
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDYxNzU5NzIsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDYyNjIzNzIsImlzcyI6Ikt1blV6VGVzdCJ9.3jHv8odDKO0ZRkdd4hC3Rq33DbStrLssFmQgj-HGv7BPd_RRhDiDhR7R8ebRlu81MtgH1yPBXVhfTbtax2JbGg
+Authorization:Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDY0MjU4NTksImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDY1MTIyNTksImlzcyI6Ikt1blV6VGVzdCJ9.aa2BA6OxiXwUeYtuKVBZZH7AscdWpJIbGm8uJ3ZLZEg_3dMU27xXnpuyZIud6OnNVsJ0u6mO-KS9RKCR72oZTw
 
 {
-  "orderNumber": 7,
-  "name_uz": "AAAAAA",
-  "name_ru": "BBBBBBB",
-  "name_en": "nnnnn"
+  "orderNumber": 9,
+  "name_uz": "Farg'ona",
+  "name_ru": "Фергана",
+  "name_en": "Ferghana"
 }
 
 ### Update Region
-PUT http://localhost:8080/region/7
+PUT http://localhost:8080/region/adm/7
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDYxNzU5NzIsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDYyNjIzNzIsImlzcyI6Ikt1blV6VGVzdCJ9.3jHv8odDKO0ZRkdd4hC3Rq33DbStrLssFmQgj-HGv7BPd_RRhDiDhR7R8ebRlu81MtgH1yPBXVhfTbtax2JbGg
+Authorization:Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDY0MjU4NTksImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDY1MTIyNTksImlzcyI6Ikt1blV6VGVzdCJ9.aa2BA6OxiXwUeYtuKVBZZH7AscdWpJIbGm8uJ3ZLZEg_3dMU27xXnpuyZIud6OnNVsJ0u6mO-KS9RKCR72oZTw
 
 {
   "name_uz": "Namangan",
@@ -22,13 +22,13 @@ Authorization: eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDYxNzU5NzIsImlkIjoxLCJyb2xlIjoi
 }
 
 ### Delete By Id
-DELETE http://localhost:8080/region/1
-Authorization: eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDYxNzU5NzIsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDYyNjIzNzIsImlzcyI6Ikt1blV6VGVzdCJ9.3jHv8odDKO0ZRkdd4hC3Rq33DbStrLssFmQgj-HGv7BPd_RRhDiDhR7R8ebRlu81MtgH1yPBXVhfTbtax2JbGg
+DELETE http://localhost:8080/region/adm/1
+Authorization:Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDY0MjU4NTksImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDY1MTIyNTksImlzcyI6Ikt1blV6VGVzdCJ9.aa2BA6OxiXwUeYtuKVBZZH7AscdWpJIbGm8uJ3ZLZEg_3dMU27xXnpuyZIud6OnNVsJ0u6mO-KS9RKCR72oZTw
 
 
 ### Get All
-GET http://localhost:8080/region
-Authorization: eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDYxNzU5NzIsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDYyNjIzNzIsImlzcyI6Ikt1blV6VGVzdCJ9.3jHv8odDKO0ZRkdd4hC3Rq33DbStrLssFmQgj-HGv7BPd_RRhDiDhR7R8ebRlu81MtgH1yPBXVhfTbtax2JbGg
+GET http://localhost:8080/region/adm
+Authorization:Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDY0MjU4NTksImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDY1MTIyNTksImlzcyI6Ikt1blV6VGVzdCJ9.aa2BA6OxiXwUeYtuKVBZZH7AscdWpJIbGm8uJ3ZLZEg_3dMU27xXnpuyZIud6OnNVsJ0u6mO-KS9RKCR72oZTw
 
 
 ### Get By lang

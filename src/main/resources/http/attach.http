@@ -1,0 +1,24 @@
+### Create
+POST http://localhost:8080/attach/upload
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="file"; filename="testvideo.mp4"
+
+< C:\Users\Rajabbek\Desktop\img\testvideo.mp4
+
+### Get file
+GET http://localhost:8080/attach/open/kunuz.jpg
+
+### Get All file
+GET http://localhost:8080/attach/open_general/kunuz.jpg
+
+### Download
+GET http://localhost:8080/attach/download/4e99b754-d169-488c-959b-53020dff7461
+
+### Get All Pagination(Admin)
+GET http://localhost:8080/attach/adm
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDczODA0MjYsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDc0NjY4MjYsImlzcyI6Ikt1blV6VGVzdCJ9.Ik3R12Pj5ENpSgmmVsJqb6clZTT6BJB7uZi90g_TGeGUPVzpweNsrltzTcrTkrn5r_-l1d5-6wIFg-AybS_GSA
+
+### Delete By Id (Admen)
+DELETE http://localhost:8080/attach/adm/4e99b754-d169-488c-959b-53020dff7461

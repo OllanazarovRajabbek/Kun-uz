@@ -1,13 +1,16 @@
 package com.example.service;
 
 import com.example.dto.ArticleTypeDTO;
+import com.example.dto.PaginationResultDTO;
 import com.example.dto.ProfileDTO;
+import com.example.dto.ProfileFilterDTO;
 import com.example.entity.ArticleTypeEntity;
 import com.example.entity.ProfileEntity;
 import com.example.entity.RegionEntity;
 import com.example.enums.ProfileRole;
 import com.example.enums.ProfileStatus;
 import com.example.exp.AppBadException;
+import com.example.repository.ProfileCustomRepository;
 import com.example.repository.ProfileRepository;
 import com.example.util.MD5Util;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +27,8 @@ public class ProfileService {
 
     @Autowired
     private ProfileRepository profileRepository;
+    @Autowired
+    private ProfileCustomRepository customRepository;
 
     public ProfileDTO create(ProfileDTO dto) {
         if (dto.getName() == null || dto.getSurname() == null || dto.getEmail() == null ||
@@ -52,46 +57,56 @@ public class ProfileService {
     }
 
     public Boolean update(Integer id, ProfileDTO profile) {
-        Optional<ProfileEntity> optional = profileRepository.findById(id);
-        if (optional.isEmpty() || optional.get().getVisible().equals(false)) {
-            throw new AppBadException("The profile you want to update was not found");
-        }
-        ProfileEntity profileEntity = optional.get();
-        profileEntity.setName(profile.getName());
-        profileEntity.setSurname(profile.getSurname());
-        profileEntity.setPassword(MD5Util.encode(profile.getPassword()));
-        profileEntity.setPhone(profile.getPhone());
-        profileEntity.setStatus(profile.getStatus());
-        profileEntity.setEmail(profile.getEmail());
-        profileEntity.setRole(profile.getRole());
-        profileEntity.setUpdatedDate(LocalDateTime.now());
+        ProfileEntity profileEntity = get(id);
 
+        if (profile.getName() != null) {
+            profileEntity.setName(profile.getName());
+        }
+        if (profile.getSurname() != null) {
+            profileEntity.setSurname(profile.getSurname());
+        }
+        if (profile.getPassword() != null) {
+            profileEntity.setPassword(MD5Util.encode(profile.getPassword()));
+        }
+        if (profile.getPhone() != null) {
+            profileEntity.setPhone(profile.getPhone());
+        }
+        if (profile.getStatus() != null) {
+            profileEntity.setStatus(profile.getStatus());
+        }
+        if (profile.getEmail() != null) {
+            profileEntity.setEmail(profile.getEmail());
+        }
+        if (profile.getRole() != null) {
+            profileEntity.setRole(profile.getRole());
+        }
+        profileEntity.setUpdatedDate(LocalDateTime.now());
         profileRepository.save(profileEntity);
         return true;
     }
 
     public Boolean updateDetail(Integer id, ProfileDTO dto) {
-        Optional<ProfileEntity> optional = profileRepository.findById(id);
-        if (optional.isEmpty() || optional.get().getVisible().equals(false)) {
-            throw new AppBadException("The profile you want to update was not found");
-        }
-        ProfileEntity profileEntity = optional.get();
-        profileEntity.setName(dto.getName());
-        profileEntity.setSurname(dto.getSurname());
-        profileEntity.setPassword(MD5Util.encode(dto.getPassword()));
-        profileEntity.setStatus(dto.getStatus());
-        profileEntity.setUpdatedDate(LocalDateTime.now());
+        ProfileEntity profileEntity = get(id);
 
+        if (dto.getName() != null) {
+            profileEntity.setName(dto.getName());
+        }
+        if (dto.getSurname() != null) {
+            profileEntity.setSurname(dto.getSurname());
+        }
+        if (dto.getPassword() != null) {
+            profileEntity.setPassword(MD5Util.encode(dto.getPassword()));
+        }
+        if (dto.getPhone() != null) {
+            profileEntity.setPhone(dto.getPhone());
+        }
+        profileEntity.setUpdatedDate(LocalDateTime.now());
         profileRepository.save(profileEntity);
         return true;
     }
 
     public Boolean delete(Integer id) {
-        Optional<ProfileEntity> optional = profileRepository.findById(id);
-        if (optional.isEmpty() || optional.get().getVisible().equals(false)) {
-            throw new AppBadException("The profile you want to delete was not found");
-        }
-        ProfileEntity entity = optional.get();
+        ProfileEntity entity = get(id);
         entity.setVisible(false);
         profileRepository.save(entity);
         return true;
@@ -131,8 +146,22 @@ public class ProfileService {
         return dto;
     }
 
-    public PageImpl<ProfileDTO> filter(Integer page, Integer size, ProfileDTO dto) {
+    public PageImpl<ProfileDTO> filter(Integer page, Integer size, ProfileFilterDTO dto) {
+        PaginationResultDTO<ProfileEntity> filter = customRepository.filter(dto, size, page);
 
+        List<ProfileDTO> dtoList = new LinkedList<>();
+        for (ProfileEntity entity : filter.getList()) {
+            dtoList.add(toDTO(entity));
+        }
+        Pageable paging = PageRequest.of(page - 1, size);
+        return new PageImpl<>(dtoList, paging, filter.getTotalSize());
+    }
 
+    public ProfileEntity get(Integer id) {
+        Optional<ProfileEntity> optional = profileRepository.findById(id);
+        if (optional.isEmpty() || optional.get().getVisible().equals(false)) {
+            throw new AppBadException("The profile you want to delete was not found");
+        }
+        return optional.get();
     }
 }

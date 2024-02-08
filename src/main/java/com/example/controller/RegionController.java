@@ -5,7 +5,9 @@ import com.example.dto.RegionDTO;
 import com.example.enums.AppLanguage;
 import com.example.enums.ProfileRole;
 import com.example.service.RegionService;
+import com.example.util.HttpRequestUtil;
 import com.example.util.JWTUtil;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,43 +21,40 @@ public class RegionController {
     @Autowired
     private RegionService regionService;
 
-    @PostMapping("")
+    @PostMapping("/adm")
     public ResponseEntity<RegionDTO> create(@RequestBody RegionDTO dto,
-                                            @RequestHeader(value = "Authorization") String jwt) {
-        JwtDTO jwtDTO = JWTUtil.decode(jwt);
-        if (jwtDTO.getRole().equals(ProfileRole.ADMIN)) {
+                                            HttpServletRequest request) {
+        HttpRequestUtil.getProfileId(request, ProfileRole.ADMIN);
+        /*  Integer id = (Integer) request.getAttribute("id");
+        ProfileRole role = (ProfileRole) request.getAttribute("role");
+
+        if (role.equals(ProfileRole.ADMIN)) {
             return ResponseEntity.ok(regionService.create(dto));
-        }
-        return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+        }*/
+        return ResponseEntity.ok(regionService.create(dto));
     }
 
-    @PutMapping("{id}")
+    @PutMapping("/adm/{id}")
     public ResponseEntity<?> update(@PathVariable Integer id, @RequestBody RegionDTO dto,
-                                    @RequestHeader(value = "Authorization") String jwt) {
-        JwtDTO jwtDTO = JWTUtil.decode(jwt);
-        if (jwtDTO.getRole().equals(ProfileRole.ADMIN)) {
-            return ResponseEntity.ok(regionService.update(id, dto));
-        }
-        return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+                                    HttpServletRequest request) {
+
+        HttpRequestUtil.getProfileId(request, ProfileRole.ADMIN);
+        return ResponseEntity.ok(regionService.update(id, dto));
     }
 
-    @DeleteMapping("{id}")
+    @DeleteMapping("/adm/{id}")
     public ResponseEntity<?> delete(@PathVariable Integer id,
-                                    @RequestHeader(value = "Authorization") String jwt) {
-        JwtDTO jwtDTO = JWTUtil.decode(jwt);
-        if (jwtDTO.getRole().equals(ProfileRole.ADMIN)) {
-            return ResponseEntity.ok(regionService.delete(id));
-        }
-        return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+                                    HttpServletRequest request) {
+
+        HttpRequestUtil.getProfileId(request, ProfileRole.ADMIN);
+        return ResponseEntity.ok(regionService.delete(id));
     }
 
-    @GetMapping("")
-    public ResponseEntity<List<RegionDTO>> getAll(@RequestHeader(value = "Authorization") String jwt) {
-        JwtDTO jwtDTO = JWTUtil.decode(jwt);
-        if (jwtDTO.getRole().equals(ProfileRole.ADMIN)) {
-            return ResponseEntity.ok(regionService.getAll());
-        }
-        return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+    @GetMapping("/adm")
+    public ResponseEntity<List<RegionDTO>> getAll(HttpServletRequest request) {
+
+        HttpRequestUtil.getProfileId(request, ProfileRole.ADMIN);
+        return ResponseEntity.ok(regionService.getAll());
     }
 
     @GetMapping("/lang")

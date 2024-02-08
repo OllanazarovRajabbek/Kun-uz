@@ -6,3 +6,21 @@ Content-Type: application/json
   "email": "admin@mail.ru",
   "password": "12345"
 }
+
+### Registration
+POST http://localhost:8080/auth/registration
+Content-Type: application/json
+
+{
+  "name": "Jamshid",
+  "surname": "Ulugmurodov",
+  "phone": "998992170228",
+  "email": "jamshidulugmurodov0411@gmail.com",
+  "password": "Jamshid_2345"
+}
+
+### Email verification
+GET http://localhost:8080/auth/verification/eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDY2MTYyNTksImlkIjozMCwiZXhwIjoxNzA2NjE5ODU5LCJpc3MiOiJLdW5VelRlc3QifQ.NOkOItcDt-ZYRk4ukpMO4xxgapeWrfm9bnoySzKmmREDsAdf9O4aTv9xzNktM91NVGSHoYL04eh6cy-AQS1qUQ
+
+### Gmail verification
+GET http://localhost:8080/auth/verification/email/eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDY3MDU5OTUsImlkIjozMiwiZXhwIjoxNzA2NzA5NTk1LCJpc3MiOiJLdW5VelRlc3QifQ.qgrxANlVX30QkPVLhDUtYgresCrucV6OBrfLRndkAaLKQm-ysbkQ6Fy7w55Rj6myZRBL91zp-tdLb8_AzbBdng
