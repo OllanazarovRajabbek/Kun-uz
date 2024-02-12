@@ -1,7 +1,6 @@
 package com.example.controller;
 
-import com.example.dto.AttachDTO;
-import com.example.dto.EmailHistoryDTO;
+import com.example.dto.history.EmailHistoryDTO;
 import com.example.enums.ProfileRole;
 import com.example.service.EmailHistoryService;
 import com.example.util.HttpRequestUtil;
@@ -34,7 +33,7 @@ public class EmailHistoryController {
     public ResponseEntity<PageImpl<EmailHistoryDTO>> pagination(@RequestParam(value = "page", defaultValue = "1") Integer page,
                                                                 @RequestParam(value = "size", defaultValue = "6") Integer size,
                                                                 HttpServletRequest request) {
-        HttpRequestUtil.getProfileId(request, ProfileRole.ADMIN);
+        HttpRequestUtil.getProfileId(request, ProfileRole.ROLE_ADMIN);
         return ResponseEntity.ok(historyService.pagination(page, size));
     }
 

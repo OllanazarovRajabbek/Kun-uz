@@ -1,0 +1,18 @@
+### Create article like
+POST http://localhost:8080/article_like/edf028cf-d071-48d2-9615-ed885917fed1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDc2NjY0NjgsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDc3NTI4NjgsImlzcyI6Ikt1blV6VGVzdCJ9.c1C_VR2qvcI8A-l8mUvzusDXp0Dw26lUPBC5OsNRa7C8FncajR_3qRK4Hn2dd65a4QBDdLl0sYQtPpPL2wij6Q
+
+{
+  "status": "DISLIKE"
+}
+
+### Create comment like
+POST http://localhost:8080/comment_like/edf028cf-d071-48d2-9615-ed885917fed1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDc2NjY0NjgsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDc3NTI4NjgsImlzcyI6Ikt1blV6VGVzdCJ9.c1C_VR2qvcI8A-l8mUvzusDXp0Dw26lUPBC5OsNRa7C8FncajR_3qRK4Hn2dd65a4QBDdLl0sYQtPpPL2wij6Q
+
+{
+  "status": "LIKE"
+}
+

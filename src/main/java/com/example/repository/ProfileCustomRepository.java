@@ -1,7 +1,7 @@
 package com.example.repository;
 
 import com.example.dto.PaginationResultDTO;
-import com.example.dto.ProfileFilterDTO;
+import com.example.dto.profile.ProfileFilterDTO;
 import com.example.entity.ProfileEntity;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Query;

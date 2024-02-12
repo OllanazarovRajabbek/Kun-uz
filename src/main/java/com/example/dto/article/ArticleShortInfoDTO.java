@@ -1,5 +1,6 @@
-package com.example.dto;
+package com.example.dto.article;
 
+import com.example.dto.attach.AttachDTO;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 

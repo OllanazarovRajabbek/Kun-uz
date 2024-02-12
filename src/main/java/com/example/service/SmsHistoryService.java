@@ -1,6 +1,6 @@
 package com.example.service;
 
-import com.example.dto.SmsHistoryDTO;
+import com.example.dto.history.SmsHistoryDTO;
 import com.example.dto.RegistrationDTO;
 import com.example.entity.SmsHistoryEntity;
 import com.example.exp.AppBadException;

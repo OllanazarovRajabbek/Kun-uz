@@ -1,4 +1,4 @@
-package com.example.dto;
+package com.example.dto.region;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.validation.constraints.NotBlank;

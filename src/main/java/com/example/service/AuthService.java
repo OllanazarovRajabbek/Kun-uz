@@ -2,7 +2,7 @@ package com.example.service;
 
 import com.example.dto.AuthDTO;
 import com.example.dto.JwtDTO;
-import com.example.dto.ProfileDTO;
+import com.example.dto.profile.ProfileDTO;
 import com.example.dto.RegistrationDTO;
 import com.example.entity.ProfileEntity;
 import com.example.enums.ProfileRole;
@@ -54,7 +54,7 @@ public class AuthService {
         dto.setName(entity.getName());
         dto.setSurname(entity.getSurname());
         dto.setRole(entity.getRole());
-        dto.setJwt(JWTUtil.encode(entity.getId(), entity.getRole()));
+        dto.setJwt(JWTUtil.encode(entity.getEmail(), entity.getRole()));
 
         return dto;
     }
@@ -197,7 +197,7 @@ public class AuthService {
         entity.setPhone(dto.getPhone());
         entity.setPassword(MD5Util.encode(dto.getPassword()));
         entity.setStatus(ProfileStatus.REGISTRATION);
-        entity.setRole(ProfileRole.USER);
+        entity.setRole(ProfileRole.ROLE_USER);
         return entity;
     }
 

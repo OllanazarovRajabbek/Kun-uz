@@ -1,38 +1,31 @@
 ####Create Article
-POST localhost:8080/article/mod
+POST localhost:8080/article
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDc1NTkwOTMsImlkIjoyMiwicm9sZSI6Ik1PREVSQVRPUiIsImV4cCI6MTcwNzY0NTQ5MywiaXNzIjoiS3VuVXpUZXN0In0.1cBHXMqzdfRhwWxuDZkFQviIQ7Phss1Wf4UTkMMD_wQjMGj-s3DZuxRd1oklr6D8Y1oWqM_GSkgDSSqu1gLeSA
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDc2MzY2MDgsImlkIjo1NSwicm9sZSI6Ik1PREVSQVRPUiIsImV4cCI6MTcwNzcyMzAwOCwiaXNzIjoiS3VuVXpUZXN0In0.FoTkZf5a7lBG4l4OQ3FRI_sdOpPom2kQSnFnmNkZdmCl-PqdVlU5Ki6llMi4NHjtGycH7S5h-qMEX7InB3OzIQ
 
 {
-  "titleUz": "tu6",
-  "titleRu": "tr6",
-  "titleEn": "te6",
-  "descriptionUz": "du6",
-  "descriptionRu": "dr6",
-  "descriptionEn": "de6",
-  "contentUz": "cu6",
-  "contentRu": "cr6",
-  "contentEn": "ce6",
-  "imageId": "7f8c907e-246b-4847-ba5d-0980003aa1a2",
-  "regionId": 3,
-  "categoryId": 5,
-  "newsType": [6,2],
-  "tagName": [1]
+  "title": "title",
+  "description": "description",
+  "content": "content",
+  "photoId": "57e465bf-3226-435d-b2f8-bc0cd937dd3e",
+  "regionId": 2,
+  "categoryId": 1,
+  "articleType": [5,2]
 }
 
 ####Update article
-PUT localhost:8080/article/mod/2ed90c88-0a78-4ba9-89f8-68037a0055e6
+PUT localhost:8080/article/edf028cf-d071-48d2-9615-ed885917fed1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDcyODk0OTcsImlkIjoyMiwicm9sZSI6Ik1PREVSQVRPUiIsImV4cCI6MTcwNzM3NTg5NywiaXNzIjoiS3VuVXpUZXN0In0.Ou4UGHrVn4Hvw_SyDNRnsUbXAxpnVeGn_sjC5L_I95MsXs4h7_mV7_bxNZrP2YdNfZ8u4VNsL9p3eWUcrBcs2g
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDc2MzY2MDgsImlkIjo1NSwicm9sZSI6Ik1PREVSQVRPUiIsImV4cCI6MTcwNzcyMzAwOCwiaXNzIjoiS3VuVXpUZXN0In0.FoTkZf5a7lBG4l4OQ3FRI_sdOpPom2kQSnFnmNkZdmCl-PqdVlU5Ki6llMi4NHjtGycH7S5h-qMEX7InB3OzIQ
 
 {
   "title": "pppppp",
   "description": "pppppppppp",
   "content": "pppppppppppp",
-  "categoryId": 2,
-  "regionId": 6,
-  "imageId": "6eedee51-1c89-4e92-8335-098682561da9",
-  "newsType": [1,2,3,4,5]
+  "categoryId": 1,
+  "regionId": 2,
+  "photoId": "57e465bf-3226-435d-b2f8-bc0cd937dd3e",
+  "articleType": [6,3]
 }
 
 ###Delete article

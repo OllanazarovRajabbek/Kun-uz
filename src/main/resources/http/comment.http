@@ -1,9 +1,34 @@
-### Create Commit
+### Create Comment
 POST http://localhost:8080/comment/any/edf028cf-d071-48d2-9615-ed885917fed1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDc1Nzk2NjQsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDc2NjYwNjQsImlzcyI6Ikt1blV6VGVzdCJ9.Rtwqahm5yOLi90Sab32l5GnOH5MDyWvHfpcFZciEJVoECle98Qay7lePFxmSiAPKo6rmq6rbAPNE6Dir61lGBw
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDc2NjY0NjgsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDc3NTI4NjgsImlzcyI6Ikt1blV6VGVzdCJ9.c1C_VR2qvcI8A-l8mUvzusDXp0Dw26lUPBC5OsNRa7C8FncajR_3qRK4Hn2dd65a4QBDdLl0sYQtPpPL2wij6Q
 
 {
-  "content": "aaaaaa",
-  "replyId": 1
+  "content": "df",
+  "replyId": 3
+
 }
+
+### Update comment
+PUT http://localhost:8080/comment/any/3
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDc2NjY0NjgsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDc3NTI4NjgsImlzcyI6Ikt1blV6VGVzdCJ9.c1C_VR2qvcI8A-l8mUvzusDXp0Dw26lUPBC5OsNRa7C8FncajR_3qRK4Hn2dd65a4QBDdLl0sYQtPpPL2wij6Q
+
+{
+  "content": "haaa",
+  "articleId": "edf028cf-d071-48d2-9615-ed885917fed1"
+}
+
+### Delete comment
+DELETE http://localhost:8080/comment/any/5
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDc2NjY0NjgsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDc3NTI4NjgsImlzcyI6Ikt1blV6VGVzdCJ9.c1C_VR2qvcI8A-l8mUvzusDXp0Dw26lUPBC5OsNRa7C8FncajR_3qRK4Hn2dd65a4QBDdLl0sYQtPpPL2wij6Q
+
+### Get By Article Id
+GET http://localhost:8080/comment/any/edf028cf-d071-48d2-9615-ed885917fed1
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDc2NjY0NjgsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDc3NTI4NjgsImlzcyI6Ikt1blV6VGVzdCJ9.c1C_VR2qvcI8A-l8mUvzusDXp0Dw26lUPBC5OsNRa7C8FncajR_3qRK4Hn2dd65a4QBDdLl0sYQtPpPL2wij6Q
+
+### Get all (pagination) Admen
+GET http://localhost:8080/comment/adm
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDc2NjY0NjgsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDc3NTI4NjgsImlzcyI6Ikt1blV6VGVzdCJ9.c1C_VR2qvcI8A-l8mUvzusDXp0Dw26lUPBC5OsNRa7C8FncajR_3qRK4Hn2dd65a4QBDdLl0sYQtPpPL2wij6Q
+
+###

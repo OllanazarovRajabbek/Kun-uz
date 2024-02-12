@@ -1,16 +1,16 @@
 ### Create Profile (Admin)
 POST http://localhost:8080/profile/adm
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDY0MjU4NTksImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDY1MTIyNTksImlzcyI6Ikt1blV6VGVzdCJ9.aa2BA6OxiXwUeYtuKVBZZH7AscdWpJIbGm8uJ3ZLZEg_3dMU27xXnpuyZIud6OnNVsJ0u6mO-KS9RKCR72oZTw
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDc2MzY0ODUsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDc3MjI4ODUsImlzcyI6Ikt1blV6VGVzdCJ9.Rr_DSspmS7QN7oiomEiI7T-lKURjI0GhVtLnwosCU30KnAkeyo0HG3eLHyfsBsI3yG59KN9SNXA0sxilfynBWw
 
 {
-  "name": "aa",
+  "name": "bb",
   "surname": "aa",
-  "email": "alisher@gmail.com",
+  "email": "bass@gmail.com",
   "phone": "+998932222222",
   "password": "alish",
   "status": "ACTIVE",
-  "role": "USER"
+  "role": "MODERATOR"
 }
 
 ### Update Profile (Admin)

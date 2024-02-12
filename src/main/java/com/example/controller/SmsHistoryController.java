@@ -1,6 +1,6 @@
 package com.example.controller;
 
-import com.example.dto.SmsHistoryDTO;
+import com.example.dto.history.SmsHistoryDTO;
 import com.example.enums.ProfileRole;
 import com.example.service.SmsHistoryService;
 import com.example.util.HttpRequestUtil;
@@ -33,7 +33,7 @@ public class SmsHistoryController {
     public ResponseEntity<PageImpl<SmsHistoryDTO>> pagination(@RequestParam(value = "page", defaultValue = "1") Integer page,
                                                               @RequestParam(value = "size", defaultValue = "6") Integer size,
                                                               HttpServletRequest request) {
-        HttpRequestUtil.getProfileId(request, ProfileRole.ADMIN);
+        HttpRequestUtil.getProfileId(request, ProfileRole.ROLE_ADMIN);
         return ResponseEntity.ok(historyService.pagination(page, size));
     }
 }

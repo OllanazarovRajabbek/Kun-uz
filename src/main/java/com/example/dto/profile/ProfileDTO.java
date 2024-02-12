@@ -1,4 +1,4 @@
-package com.example.dto;
+package com.example.dto.profile;
 
 import com.example.enums.ProfileRole;
 import com.example.enums.ProfileStatus;

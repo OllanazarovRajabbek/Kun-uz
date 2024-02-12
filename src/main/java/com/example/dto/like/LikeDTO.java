@@ -1,4 +1,4 @@
-package com.example.dto;
+package com.example.dto.like;
 
 import com.example.enums.ArticleLikeStatus;
 import lombok.Data;

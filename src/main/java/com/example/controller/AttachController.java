@@ -1,6 +1,6 @@
 package com.example.controller;
 
-import com.example.dto.AttachDTO;
+import com.example.dto.attach.AttachDTO;
 import com.example.enums.ProfileRole;
 import com.example.service.AttachService;
 import com.example.util.HttpRequestUtil;
@@ -58,14 +58,14 @@ public class AttachController {
     public ResponseEntity<PageImpl<AttachDTO>> pagination(@RequestParam(value = "page", defaultValue = "1") Integer page,
                                                           @RequestParam(value = "size", defaultValue = "6") Integer size,
                                                           HttpServletRequest request) {
-        HttpRequestUtil.getProfileId(request, ProfileRole.ADMIN);
+        HttpRequestUtil.getProfileId(request, ProfileRole.ROLE_ADMIN);
         return ResponseEntity.ok(attachService.pagination(page, size));
     }
 
     @DeleteMapping("/adm/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") Integer id,
                                     HttpServletRequest request) {
-        HttpRequestUtil.getProfileId(request, ProfileRole.ADMIN);
+        HttpRequestUtil.getProfileId(request, ProfileRole.ROLE_ADMIN);
         return ResponseEntity.ok(attachService.delete(id));
     }
 }

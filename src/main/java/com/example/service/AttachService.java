@@ -1,6 +1,6 @@
 package com.example.service;
 
-import com.example.dto.AttachDTO;
+import com.example.dto.attach.AttachDTO;
 import com.example.entity.AttachEntity;
 import com.example.exp.AppBadException;
 import com.example.repository.AttachRepository;

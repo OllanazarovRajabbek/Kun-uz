@@ -1,14 +1,9 @@
 package com.example.service;
 
-import com.example.dto.ArticleTypeDTO;
 import com.example.dto.PaginationResultDTO;
-import com.example.dto.ProfileDTO;
-import com.example.dto.ProfileFilterDTO;
-import com.example.entity.ArticleTypeEntity;
+import com.example.dto.profile.ProfileDTO;
+import com.example.dto.profile.ProfileFilterDTO;
 import com.example.entity.ProfileEntity;
-import com.example.entity.RegionEntity;
-import com.example.enums.ProfileRole;
-import com.example.enums.ProfileStatus;
 import com.example.exp.AppBadException;
 import com.example.repository.ProfileCustomRepository;
 import com.example.repository.ProfileRepository;
@@ -163,5 +158,13 @@ public class ProfileService {
             throw new AppBadException("The profile you want to delete was not found");
         }
         return optional.get();
+    }
+
+    public ProfileDTO toDTO2(ProfileEntity entity) {
+        ProfileDTO dto = new ProfileDTO();
+        dto.setId(entity.getId());
+        dto.setName(entity.getName());
+        dto.setSurname(entity.getSurname());
+        return dto;
     }
 }

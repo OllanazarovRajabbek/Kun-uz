@@ -1,4 +1,4 @@
-package com.example.dto;
+package com.example.dto.like;
 
 import com.example.entity.ArticleEntity;
 import com.example.entity.ProfileEntity;

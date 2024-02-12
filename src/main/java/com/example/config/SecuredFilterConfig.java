@@ -30,6 +30,15 @@ public class SecuredFilterConfig {
         bean.addUrlPatterns("/attach/adm/*");
         bean.addUrlPatterns("/email_history/adm");
         bean.addUrlPatterns("/sms_history/adm");
+        bean.addUrlPatterns("/article/*");
+        bean.addUrlPatterns("/article_like/*");
+        bean.addUrlPatterns("/comment_like/*");
+        bean.addUrlPatterns("/comment/any");
+        bean.addUrlPatterns("/comment/any/*");
+        bean.addUrlPatterns("/comment/adm");
+        bean.addUrlPatterns("/comment/adm/*");
+        bean.addUrlPatterns("/comment/adm/any/*");
+
         return bean;
     }
 
